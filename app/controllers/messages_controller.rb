@@ -2,8 +2,11 @@ class MessagesController < ApplicationController
     before_action :authenticate_request
   
     def index
-      @messages = Message.where(sender_id: @current_user.id).or(Message.where(receiver_id: @current_user.id))
-      render json: @messages
+      messages = Message.where(sender_id: [@current_user.id, params[:user_id]])
+                        .where(receiver_id: [@current_user.id, params[:user_id]])
+                        .order(created_at: :asc)
+  
+      render json: messages
     end
   
     def create
