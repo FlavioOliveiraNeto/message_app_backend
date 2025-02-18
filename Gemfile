@@ -38,6 +38,9 @@ gem "rack-cors"
 gem "jwt"
 gem "active_model_serializers"
 gem "pg"
+gem "actioncable"
+gem "carrierwave"
+gem "kaminari"
 
 group :development, :test do
   # See https://guides.rubyonrails.org/debugging_rails_applications.html#debugging-with-the-debug-gem
