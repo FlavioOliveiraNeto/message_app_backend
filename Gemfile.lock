@@ -84,6 +84,7 @@ GEM
     bcrypt (3.1.20)
     bcrypt_pbkdf (1.1.1)
     bcrypt_pbkdf (1.1.1-arm64-darwin)
+    bcrypt_pbkdf (1.1.1-x64-mingw-ucrt)
     bcrypt_pbkdf (1.1.1-x86_64-darwin)
     benchmark (0.4.0)
     bigdecimal (3.1.9)
@@ -119,6 +120,7 @@ GEM
     ffi (1.17.1-arm-linux-gnu)
     ffi (1.17.1-arm-linux-musl)
     ffi (1.17.1-arm64-darwin)
+    ffi (1.17.1-x64-mingw-ucrt)
     ffi (1.17.1-x86_64-darwin)
     ffi (1.17.1-x86_64-linux-gnu)
     ffi (1.17.1-x86_64-linux-musl)
@@ -207,6 +209,8 @@ GEM
       racc (~> 1.4)
     nokogiri (1.18.2-arm64-darwin)
       racc (~> 1.4)
+    nokogiri (1.18.2-x64-mingw-ucrt)
+      racc (~> 1.4)
     nokogiri (1.18.2-x86_64-darwin)
       racc (~> 1.4)
     nokogiri (1.18.2-x86_64-linux-gnu)
@@ -219,6 +223,7 @@ GEM
       ast (~> 2.4.1)
       racc
     pg (1.5.9)
+    pg (1.5.9-x64-mingw-ucrt)
     pp (0.6.2)
       prettyprint
     prettyprint (0.2.0)
@@ -273,6 +278,10 @@ GEM
     rake (13.2.1)
     rdoc (6.12.0)
       psych (>= 4.0.0)
+    redis (5.3.0)
+      redis-client (>= 0.22.0)
+    redis-client (0.23.2)
+      connection_pool
     regexp_parser (2.10.0)
     reline (0.6.0)
       io-console (~> 0.5)
@@ -313,6 +322,12 @@ GEM
       ffi (~> 1.12)
       logger
     securerandom (0.4.1)
+    sidekiq (7.3.9)
+      base64
+      connection_pool (>= 2.3.0)
+      logger
+      rack (>= 2.2.4)
+      redis-client (>= 0.22.2)
     solid_cable (3.0.7)
       actioncable (>= 7.2)
       activejob (>= 7.2)
@@ -334,6 +349,7 @@ GEM
     sqlite3 (2.5.0-arm-linux-gnu)
     sqlite3 (2.5.0-arm-linux-musl)
     sqlite3 (2.5.0-arm64-darwin)
+    sqlite3 (2.5.0-x64-mingw-ucrt)
     sqlite3 (2.5.0-x86_64-darwin)
     sqlite3 (2.5.0-x86_64-linux-gnu)
     sqlite3 (2.5.0-x86_64-linux-musl)
@@ -355,6 +371,8 @@ GEM
     timeout (0.4.3)
     tzinfo (2.0.6)
       concurrent-ruby (~> 1.0)
+    tzinfo-data (1.2025.1)
+      tzinfo (>= 1.0.0)
     unicode-display_width (3.1.4)
       unicode-emoji (~> 4.0, >= 4.0.4)
     unicode-emoji (4.0.4)
@@ -373,6 +391,7 @@ PLATFORMS
   arm-linux-gnu
   arm-linux-musl
   arm64-darwin
+  x64-mingw-ucrt
   x86_64-darwin
   x86_64-linux
   x86_64-linux-gnu
@@ -393,7 +412,9 @@ DEPENDENCIES
   puma (>= 5.0)
   rack-cors
   rails (~> 8.0.1)
+  redis
   rubocop-rails-omakase
+  sidekiq
   solid_cable
   solid_cache
   solid_queue

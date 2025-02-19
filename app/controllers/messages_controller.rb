@@ -4,7 +4,7 @@ class MessagesController < ApplicationController
   def index
     messages = Message.where(sender_id: [@current_user.id, params[:user_id]])
                       .where(receiver_id: [@current_user.id, params[:user_id]])
-                      .order(created_at: :desc)
+                      .order(created_at: :asc)
                       .page(params[:page]).per(10)
 
     render json: {
@@ -19,9 +19,9 @@ class MessagesController < ApplicationController
     @message.sender_id = @current_user.id
 
     if @message.save
-      ActionCable.server.broadcast("messages_#{@message.receiver_id}", @message) # Transmite a mensagem via ActionCable
+      ActionCable.server.broadcast("messages_#{@message.receiver_id}", @message)
 
-      ProcessMessageJob.perform_later(@message.id) # Enfileira tarefa assíncrona
+      #ProcessMessageJob.perform_later(@message.id)
 
       render json: @message, status: :created
     else
